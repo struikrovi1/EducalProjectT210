@@ -1,0 +1,79 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model Course
+
+<form class="form-sample" method ="post" enctype="multipart/form-data" >
+    <input type = "hidden" asp-for = "Id" />
+     <input type = "hidden" asp-for = "PhotoUrl" />
+    <div class="mb-3">
+        <label>Name</label>
+        <input class="form-control" placeholder = "Course Name" asp-for ="Name" />
+    </div>
+
+
+     <div class="mb-3">
+        <label>Lesson Count</label>
+        <input class="form-control" placeholder = "Lesson Count" type = "number" asp-for  ="LessonCount" />
+    </div>
+
+
+
+     <div class="mb-3">
+        <label>Author Name</label>
+        <input class="form-control" placeholder = "Author Name" type ="text" asp-for  ="AuthorName" />
+    </div>
+
+
+     <div class="mb-3">
+        <label>Rating</label>
+        <input class="form-control" placeholder = "Rating" type ="number" asp-for  ="Rating" />
+    </div>
+
+
+       <div class="mb-3">
+        <label>Price</label>
+        <input class="form-control" placeholder = "Price" type ="number" asp-for  ="Price" />
+    </div>
+
+      <div class="mb-3">
+        <label>Course Description</label>
+       <textarea class = "form-control" placeholder = "Description" type = "text" asp-for  ="Description"> </textarea>
+    </div>
+
+     <div class="mb-3">
+       <img width = "200" src = "@Model.PhotoUrl" />
+    </div>
+    
+       <div class="mb-3">
+        <label>Photo</label>
+        <input class="form-control"  type ="file" asp-for  ="PhotoUrl" />
+    </div>
+
+    
+
+      <div class="mb-3">
+        <label>Categories</label>
+ <select class = "form-control" asp-for  = "CategoryId">
+            @foreach (var item in ViewBag.CategoryList as List<Category>)
+            {
+                  <option value = "@item.CategoryId">@item.CategoryName</option>
+            }
+        </select>
+    </div>
+
+
+     
+       <div class="mb-3">
+       
+       
+          <button type ="submit" class="btn btn-success mr-2">Save</button>
+        <a asp-action = "Index" class = "btn btn-light ">Cancel</a>
+    </div>
+
+
+
+
+</form>

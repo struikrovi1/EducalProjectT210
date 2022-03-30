@@ -1,0 +1,53 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model List<Category>
+ <a class = "btn btn-primary" href = "/EducalAdmin/Category/Create">Create Category</a>
+
+
+
+ <table class ="table table-bordered table-primary">
+
+
+     <thead class = "table-dark">
+         <tr>
+             <th>#</th>
+              <th>Category Name</th>
+               <th>Category Description</th>
+                <th>Icon</th>
+                 <th>#</th>
+
+         </tr>
+     </thead>
+
+ 
+
+
+
+
+
+
+
+
+     <tbody>
+         @foreach (var item in Model)
+        {
+                <tr>
+         <td>1</td>
+          <td>@item.CategoryName</td>
+           <td>@item.CategoryDescription</td>
+            <td><i class="@item.CategoryIcon"></i></td>
+             <td>
+                 <a href ="/EducalAdmin/Category/Edit/@item.CategoryId">Edit</a>  |
+                  <a href ="/EducalAdmin/Category/Delete/@item.CategoryId">Delete</a>
+
+             </td>
+
+     </tr>
+
+        }
+     </tbody>
+ </table>

@@ -1,0 +1,62 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model Category
+
+<h1>Edit Page</h1>
+
+<div class="col-lg-7">
+    <form method ="post">
+         <input type = "hidden" name = "CategoryId" value = "@Model.CategoryId" />
+    <div>
+           <label>Category Name</label>
+   <input class = "form-control" type = "text" name = "CategoryName" value = "@Model.CategoryName" />
+
+    </div>
+
+      <div>
+           <label>Category Description</label>
+   <input class = "form-control" type = "text" name = "CategoryDescription" value = "@Model.CategoryDescription" />
+
+    </div>
+
+          <div>
+           <label>Category Icon</label>
+   <input id = "iconInput" class = "form-control" type = "hidden" name = "CategoryIcon" />
+
+
+   <div class="iconList">
+       <i class="fas fa-user"></i>
+       <i class="fas fa-dice"></i>
+    <i class="fas fa-truck"></i>
+      <i class="fas fa-glasses"></i>
+       <i class="fas fa-paper-plane"></i>
+       <i class="fas fa-undo"></i>
+       <i class="far fa-edit"></i>
+       <i class="fab fa-adn"></i>
+       <i class="fas fa-blind"></i>
+   </div>
+
+    </div>
+    <button class ="btn btn-primary py-2 pt-2" type = "submit"> Edit Category</button>
+ 
+</form>
+
+<a class ="my-3 btn btn-warning" href = "/EducalAdmin/category">Geri</a>
+</div>
+
+
+@section MyScripts{
+    <script>
+        $(".iconList i").on("click", function(){
+             $(".iconList i").removeClass("icon-active")
+            $(this).toggleClass("icon-active")
+            const value = $(this).attr("class")
+            $("#iconInput").val(value)
+        })
+
+</script>
+}
